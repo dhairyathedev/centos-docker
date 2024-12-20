@@ -29,7 +29,7 @@ if (-not (docker volume ls | Select-String $volumeName)) {
 
 # Run the Docker container
 Write-Host "Starting the Docker container..."
-docker run -dit --name $containerName -v $volumeName:/data $imageName | Out-Null
+docker run -dit --name $containerName -v ${volumeName}:/data $imageName | Out-Null
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Failed to start the container." -ForegroundColor Red
     exit 1
@@ -38,4 +38,3 @@ if ($LASTEXITCODE -ne 0) {
 # Success message
 Write-Host "Container '$containerName' started successfully with persistent data stored in volume '$volumeName'." -ForegroundColor Green
 Write-Host "To access the container, use: docker exec -it $containerName /bin/bash"
-
