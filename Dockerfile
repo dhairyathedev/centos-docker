@@ -25,6 +25,9 @@ RUN yum -y install epel-release \
 # Install network diagnostic tools
 RUN yum -y install tcpdump nc
 
+# Disk Partition
+RUN yum -y install util-linux parted e2fsprogs lvm2 gdisk
+
 # Clean up cached files to reduce image size
 RUN yum clean all
 
