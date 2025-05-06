@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:centos7.9.2009
 
 # Fix mirror list for CentOS vault
 RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* \
@@ -33,4 +33,3 @@ RUN yum clean all
 
 # Set the default shell to bash
 CMD ["/bin/bash"]
-
